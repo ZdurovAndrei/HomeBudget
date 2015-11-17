@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.homebudget;
 
 import org.junit.Test;
 
