@@ -7,12 +7,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
 
-
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SETTINGS"
+        android:text="@string/BtnSettings"
         android:textSize="32sp"
         android:layout_gravity="center"/>
 
@@ -23,11 +21,11 @@
         android:layout_gravity="bottom">
 
         <Button
-            android:id="@+id/buttonActivityMain"
+            android:id="@+id/buttonActivityIncomes"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="MAIN"
+            android:text="@string/BtnIncomes"
             android:onClick="onClick"/>
 
         <Button
@@ -35,16 +33,9 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="COSTS"
+            android:text="@string/BtnCosts"
             android:onClick="onClick"/>
 
-        <Button
-            android:id="@+id/buttonActivityIncomes"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="INCOMES"
-            android:onClick="onClick"/>
 
     </LinearLayout>
 

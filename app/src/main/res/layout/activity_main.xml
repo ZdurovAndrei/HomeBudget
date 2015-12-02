@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MAIN ACTIVITY"
+        android:text="@string/BtnMain"
         android:textSize="32sp"
         android:layout_gravity="center"/>
 
@@ -35,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="INCOMES"
+            android:text="@string/BtnIncomes"
             android:onClick="onClick"/>
 
         <Button
@@ -43,7 +43,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="COSTS"
+            android:text="@string/BtnCosts"
             android:onClick="onClick"/>
 
         <Button
@@ -51,10 +51,8 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="SETTINGS"
+            android:text="@string/BtnSettings"
             android:onClick="onClick"/>
 
     </LinearLayout>
-
-
 </FrameLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,33 +11,107 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <TextView
+    <EditText
+        android:hint="@string/BtnDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="INCOMES"
-        android:textSize="32sp"
-        android:layout_gravity="center"/>
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editTextIncomesDate"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="left|center_vertical" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextIncomes"
+        android:layout_alignBottom="@+id/editTextCostsDate"
+        android:hint="@string/BtnSum"
+        android:layout_gravity="right"
+        android:layout_toRightOf="@+id/editTextIncomesDate"
+        android:layout_alignRight="@+id/editTextIncomesInfo"
+        android:layout_alignEnd="@+id/editTextIncomesInfo" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextIncomesInfo"
+        android:hint="@string/BtnDescription"
+        android:layout_below="@+id/editTextIncomesDate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="left|top" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BtnAdd"
+        android:id="@+id/btnIncomesSave"
+        android:layout_gravity="right|center_vertical"
+        android:onClick="onClick"
+        android:layout_below="@+id/editTextIncomesInfo"
+        android:layout_alignRight="@+id/editTextIncomesInfo"
+        android:layout_alignEnd="@+id/editTextIncomesInfo" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show All"
+        android:id="@+id/btnIncomesShowAll"
+        android:layout_gravity="right|center_vertical"
+        android:onClick="onClick"
+        android:layout_below="@+id/btnIncomesSave"
+        android:layout_alignRight="@+id/btnIncomesSave"
+        android:layout_alignEnd="@+id/btnIncomesSave" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete All"
+        android:id="@+id/btnIncomesDeleteAll"
+        android:onClick="onClick"
+        android:layout_below="@+id/editTextIncomesInfo"
+        android:layout_toLeftOf="@+id/btnIncomesSave"
+        android:layout_toStartOf="@+id/btnIncomesSave" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView2"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/btnIncomesShowAll">
 
     <LinearLayout
+        android:id="@+id/linearLayoutContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="bottom">
-
-        <Button
-            android:id="@+id/buttonActivityMain"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="MAIN"
-            android:onClick="onClick"/>
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <Button
             android:id="@+id/buttonActivityCosts"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="COSTS"
+            android:text="@string/BtnCosts"
             android:onClick="onClick"/>
 
         <Button
@@ -45,10 +119,8 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="SETTINGS"
+            android:text="@string/BtnSettings"
             android:onClick="onClick"/>
 
     </LinearLayout>
-
-
-</FrameLayout>
+</RelativeLayout>

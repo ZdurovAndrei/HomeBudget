@@ -1,30 +1,18 @@
 package com.example.homebudget;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Fragment fragment = new MyFragment();
-        FragmentTransaction fragmentManager = getFragmentManager().beginTransaction();
-        fragmentManager.replace(R.id.container, fragment);
-        fragmentManager.commit();
-    }
-
-    public void onDestroy() {
-        super.onDestroy();
-        moveTaskToBack(true);
-        System.exit(0);
     }
 
     public void onClick(View v){
@@ -45,5 +33,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
         }
+    }
+
+    public void onDestroy() {
+        super.onDestroy();
+        moveTaskToBack(true);
+        System.exit(0);
     }
 }

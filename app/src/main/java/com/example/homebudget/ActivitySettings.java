@@ -19,11 +19,6 @@ public class ActivitySettings extends AppCompatActivity {
     public void onClick(View v){
         Intent intent;
         switch(v.getId()){
-            case R.id.buttonActivityMain:
-                intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-                break;
-
             case R.id.buttonActivityIncomes:
                 intent = new Intent(this, ActivityIncomes.class);
                 startActivity(intent);

@@ -22,11 +22,6 @@
         <activity android:name=".ActivitySettings" >
         </activity>
 
-        <service
-            android:name=".MainService"
-            android:enabled="true"
-            android:exported="true" >
-        </service>
     </application>
 
 </manifest>

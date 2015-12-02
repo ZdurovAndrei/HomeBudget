@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">HomeBudget</string>
+    <string name="app_name">Домашний бюджет</string>
+    <string name="BtnMain">Главная</string>
+    <string name="BtnCosts">Расходы</string>
+    <string name="BtnIncomes">Доходы</string>
+    <string name="BtnSettings">Настройки</string>
+    <string name="BtnDescription">Описание</string>
+    <string name="BtnDate">Дата начала</string>
+    <string name="BtnSum">Сумма</string>
+    <string name="BtnAdd">Добавить</string>
 </resources>
