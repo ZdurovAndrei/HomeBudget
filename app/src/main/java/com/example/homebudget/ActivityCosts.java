@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -54,6 +55,20 @@ public class ActivityCosts extends AppCompatActivity {
                 showDialog(DIALOG_ID);
             }
         });
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        linearLayoutContent.removeAllViews();
+        Cursor c = db.query("incomes_and_costs", null, "is_income = 0", null, null, null, null);
+        if(c.moveToFirst()){
+            do{
+                String str = "";
+                str = c.getString(c.getColumnIndex("date")) + " " + c.getString(c.getColumnIndex("summ")) + " " + c.getString(c.getColumnIndex("description"));
+                TextView textView = new TextView(this);
+                textView.setText(str);
+                textView.setLayoutParams(lp);
+                linearLayoutContent.addView(textView);
+            }
+            while(c.moveToNext());
+        }
     }
 
     public void onClick(View v){
@@ -70,15 +85,23 @@ public class ActivityCosts extends AppCompatActivity {
                 break;
 
             case R.id.btnCostsSave:
-                ContentValues cv = new ContentValues();
-                cv.put("is_income", "0");
-                cv.put("date", editTextCostsDate.getText().toString());
-                cv.put("summ", editTextCosts.getText().toString());
-                cv.put("description", editTextCostsInfo.getText().toString());
-                db.insert("incomes_and_costs", null, cv);
-                break;
-
-            case R.id.btnShowAll:
+                boolean check = true;
+                if (editTextCosts.getText().toString().length() == 0){
+                    editTextCosts.setError("Пустое поле!");
+                    check = false;
+                }
+                if (editTextCostsInfo.getText().toString().length() == 0){
+                    editTextCostsInfo.setError("Пустое поле!");
+                    check = false;
+                }
+                if (check) {
+                    ContentValues cv = new ContentValues();
+                    cv.put("is_income", "0");
+                    cv.put("date", editTextCostsDate.getText().toString());
+                    cv.put("summ", editTextCosts.getText().toString());
+                    cv.put("description", editTextCostsInfo.getText().toString());
+                    db.insert("incomes_and_costs", null, cv);
+                }
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 linearLayoutContent.removeAllViews();
                 Cursor c = db.query("incomes_and_costs", null, "is_income = 0", null, null, null, null);
@@ -97,6 +120,7 @@ public class ActivityCosts extends AppCompatActivity {
 
             case R.id.btnDeleteAll:
                 db.delete("incomes_and_costs", null, null);
+                linearLayoutContent.removeAllViews();
                 break;
         }
     }
@@ -116,4 +140,12 @@ public class ActivityCosts extends AppCompatActivity {
         }
     };
 
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            Intent intent;
+            intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

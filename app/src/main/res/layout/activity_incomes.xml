@@ -54,29 +54,19 @@
         android:layout_gravity="right|center_vertical"
         android:onClick="onClick"
         android:layout_below="@+id/editTextIncomesInfo"
-        android:layout_alignRight="@+id/editTextIncomesInfo"
-        android:layout_alignEnd="@+id/editTextIncomesInfo" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show All"
-        android:id="@+id/btnIncomesShowAll"
-        android:layout_gravity="right|center_vertical"
-        android:onClick="onClick"
-        android:layout_below="@+id/btnIncomesSave"
-        android:layout_alignRight="@+id/btnIncomesSave"
-        android:layout_alignEnd="@+id/btnIncomesSave" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete All"
+        android:text="Удалить все записи"
         android:id="@+id/btnIncomesDeleteAll"
         android:onClick="onClick"
-        android:layout_below="@+id/editTextIncomesInfo"
-        android:layout_toLeftOf="@+id/btnIncomesSave"
-        android:layout_toStartOf="@+id/btnIncomesSave" />
+        android:layout_above="@+id/scrollView2"
+        android:layout_alignRight="@+id/scrollView2"
+        android:layout_alignEnd="@+id/scrollView2" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -85,7 +75,7 @@
         android:layout_above="@+id/linearLayout"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/btnIncomesShowAll">
+        android:layout_below="@+id/btnIncomesSave">
 
     <LinearLayout
         android:id="@+id/linearLayoutContent"
