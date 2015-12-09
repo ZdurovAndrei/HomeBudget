@@ -27,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editTextIncomes"
+        android:inputType="number"
         android:layout_alignBottom="@+id/editTextCostsDate"
         android:hint="@string/BtnSum"
         android:layout_gravity="right"

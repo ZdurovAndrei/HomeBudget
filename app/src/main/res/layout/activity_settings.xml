@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
@@ -11,7 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout4">
 
         <Button
             android:id="@+id/buttonActivityIncomes"
@@ -28,8 +32,6 @@
             android:layout_height="wrap_content"
             android:text="@string/BtnCosts"
             android:onClick="onClick"/>
-
-
     </LinearLayout>
 
     <Button
@@ -37,7 +39,10 @@
         android:layout_height="wrap_content"
         android:text="Экспорт в json"
         android:id="@+id/btnjson"
-        android:onClick="onClick"/>
-        android:layout_gravity="center_horizontal|top" />
+        android:onClick="onClick"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="79dp" />
 
-</FrameLayout>
+</RelativeLayout>
