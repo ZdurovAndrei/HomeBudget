@@ -8,11 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private LinearLayout linearLayoutMain;
     SQLiteDatabase db;
+    TextView textViewBalance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
             while(c.moveToNext());
         }
+        textViewBalance = (TextView)findViewById(R.id.textViewBalance);
     }
 
     public void onClick(View v){
@@ -56,6 +59,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
         }
+    }
+    private void Balance() {
+        int sum = 0;
+        Cursor c = db.query("incomes_and_costs", null, null, null, null, null, null);
+        StringBuffer buffer = new StringBuffer();
+        while(c.moveToNext()){
+            Toast.makeText(getApplicationContext(),c.getString(0), Toast.LENGTH_SHORT).show();
+            if(c.getString(0).equals("is_income = 1"))
+                sum = sum + c.getInt(2);
+            else
+                sum = sum - c.getInt(2);
+        }
+        buffer.append(sum);
+        textViewBalance.setText(buffer);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Balance();
     }
 
     public void onDestroy() {

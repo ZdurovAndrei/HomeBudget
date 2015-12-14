@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Экспорт в json"
-        android:id="@+id/btnjson"
+        android:id="@+id/btnjsonexport"
         android:onClick="onClick"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
